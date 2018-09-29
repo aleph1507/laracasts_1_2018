@@ -20,6 +20,6 @@ class Post extends Model
     //   'post_id' => $this->id
     // ]);
   }
-    // protected $fillable = ['title', 'body'];
+    protected $fillable = ['title', 'body', 'user_id'];
     // protected $guarded = ['user_id'];
 }
