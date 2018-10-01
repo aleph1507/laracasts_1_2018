@@ -1,7 +1,7 @@
 @extends('layouts.master')
 
 @section('content')
-  <div class="col-sm-8 blog-main">
+  <div class="blog-main">
     <h1>{{$post->title}}</h1>
 
     {{$post->body}}
@@ -41,6 +41,4 @@
         @include('partials._errors')
       </div>
     </div>
-
-  </div>
 @endsection

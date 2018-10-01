@@ -23,7 +23,14 @@
     <div class="container">
       @include('partials._nav')
       @include('partials._scroller')
-      @yield('content')
+      <div class="row">
+        <div class="col-sm-8">
+          @yield('content')
+        </div>
+        <div class="col-sm-4">
+          @include('partials._sidebar')
+        </div>
+      </div>
     </div>
     @include('partials._footer')
   </body>

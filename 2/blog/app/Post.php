@@ -1,6 +1,7 @@
 <?php
 
 namespace App;
+use Carbon\Carbon;
 
 class Post extends Model
 {
@@ -20,6 +21,28 @@ class Post extends Model
     //   'post_id' => $this->id
     // ]);
   }
+
+  public function scopeFilter($query, $filters){
+    if($filters){
+      if($month = $filters['month']){
+        $query->whereMonth('created_at', Carbon::parse($month)->month);
+      }
+    }
+
+    if($filters){
+      if($filters['year'] && $year = $filters['year']){
+        $query->whereYear('created_at', $filters['year']);
+      }
+    }
+  }
+
+  public static function archives() {
+    return static::selectRaw('year(created_at) year, monthname(created_at) month, count(*) published')
+    ->groupBy('year', 'month')
+    ->orderByRaw('min(created_at) desc')
+    ->get()->toArray();
+  }
+
     protected $fillable = ['title', 'body', 'user_id'];
     // protected $guarded = ['user_id'];
 }
