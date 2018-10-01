@@ -1,2 +1,2 @@
-https://www.youtube.com/watch?v=A55FTrPVl-A&index=22&list=PL3VM-unCzF8iPERY07XRw0JXG_c50CapR
-laravel_from_scratch 22/32 1:14
+https://www.youtube.com/watch?v=GqVdt6OWN-Y&index=24&list=PL3VM-unCzF8iPERY07XRw0JXG_c50CapR
+laravel_from_scratch 24/32 1:14
