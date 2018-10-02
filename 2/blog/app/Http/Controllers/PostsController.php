@@ -16,6 +16,8 @@ public function __construct(/*Posts $posts*/) {
 
     public function index(Posts $posts) {
 
+      // return session('message');
+
       // dd($posts);
       $posts = $posts->all();
 
@@ -29,7 +31,8 @@ public function __construct(/*Posts $posts*/) {
 
       // return $archives;
 
-
+      // $stripe = resolve('App\Billing\Stripe');
+      // dd($stripe);
       return view('posts.index', compact('posts'));
     }
 
@@ -62,6 +65,10 @@ public function __construct(/*Posts $posts*/) {
       // Post::create(request(['title', 'body']));
       auth()->user()->publish(
         new Post(request(['title', 'body']))
+      );
+
+      session()->flash(
+        'message', 'Your post has been published'
       );
       //
       // Post::create([

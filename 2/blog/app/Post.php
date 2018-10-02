@@ -43,6 +43,10 @@ class Post extends Model
     ->get()->toArray();
   }
 
+  public function tags() {
+    return $this->belongsToMany(Tag::class);
+  }
+
     protected $fillable = ['title', 'body', 'user_id'];
     // protected $guarded = ['user_id'];
 }

@@ -23,6 +23,11 @@
     <div class="container">
       @include('partials._nav')
       @include('partials._scroller')
+      @if($flash = session('message'))
+        <div id="flash-message" class="alert alert-success" role="alert">
+          {{ $flash }}
+        </div>
+      @endif
       <div class="row">
         <div class="col-sm-8">
           @yield('content')

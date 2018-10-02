@@ -17,13 +17,19 @@
 
 // App => app()
 
-App::bind('App\Billing\Stripe', function() {
-  return new \App\Billing\Stripe(config('services.stripe.secret'));
-});
+// App::bind('App\Billing\Stripe', function() {
+//   return new \App\Billing\Stripe(config('services.stripe.secret'));
+// });
 
-$stripe = App::make('App\Billing\Stripe');
+// dd(resolve('App\Billing\Stripe'));
 
-dd($stripe);
+// $stripe = App::make('App\Billing\Stripe');
+// $stripe = resolve('App\Billing\Stripe');
+//
+// print_r($stripe);
+// echo $stripe->get_key();
+
+// dd($stripe);
 
 Route::get('/', 'PostsController@index')->name('home');
 
@@ -32,6 +38,8 @@ Route::get('/posts/create', 'PostsController@create');
 Route::post('/posts', 'PostsController@store');
 
 Route::get('/posts/{post}', 'PostsController@show');
+
+Route::get('/posts/tags/{tag}', 'TagsController@index');
 
 Route::post('/posts/{post}/comments', 'CommentsController@store');
 
